@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fear of Flying - Sound Effects</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            margin: auto;
+        }
+
+        input {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border: 5px solid blue;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="btns_container">
+        <!-- gun shoot -->
+        <input type="image" src="images/45gun.png" alt="gun shot" onclick="playSound('45shot',true)">
+        <audio id="45shot"><source src="sounds/45shot.mp3" type="audio/mpeg"></audio>
+        
+        <!-- female screaming -->
+        <input type="image" src="images/womanScreaming.png" alt="woman screaming" onclick="playSound('fscream',false)">
+        <audio id="fscream"><source src="sounds/womanScream.mp3" type="audio/mpeg"></audio>
+
+        <!-- thunder 1 -->
+        <input type="image" src="images/thunder_1.png" alt="thunder" onclick="playSound('thunder_1',false)">
+        <audio id="thunder_1"><source src="sounds/thunder_0001.wav" type="audio/wav"></audio>
+    </div>
+
+    <hr>
+
+    <div class="ambience">
+        <!-- engine start -->
+        <input type="image" src="images/engineStart.png" alt="engine start" onclick="playSound('engineStart',false)">
+        <audio id="engineStart"><source src="sounds/engineStart.wav" type="audio/wav"></audio>
+
+         <!-- rain -->
+         <input type="image" src="images/rain.png" alt="rain" onclick="playSound('rain',false)">
+         <audio id="rain"><source src="sounds/rain.wav" type="audio/wav"></audio>
+
+         <!-- crash -->
+         <input type="image" src="images/crash.png" alt="rain" onclick="playSound('crash',false)">
+         <audio id="crash"><source src="sounds/crash.wav" type="audio/wav"></audio>
+    </div>
+
+    <script>
+        function playSound(sndid,rpt) {
+            if (rpt == true) {
+                document.getElementById(sndid).load();    
+            }
+            document.getElementById(sndid).play();
+        }
+    </script>
+</body>
+</html>
