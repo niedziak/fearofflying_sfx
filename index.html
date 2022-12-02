@@ -26,40 +26,53 @@
 <body>
     <div class="btns_container">
         <!-- gun shoot -->
-        <input type="image" src="images/45gun.png" alt="gun shot" onclick="playSound('45shot',true)">
+        <input type="image" src="images/45gun.png" alt="gun shot" onclick="playSound('45shot',true,false)">
         <audio preload="auto" id="45shot"><source src="sounds/45shot.mp3" type="audio/mpeg"></audio>
         
         <!-- female screaming -->
-        <input type="image" src="images/womanScreaming.png" alt="woman screaming" onclick="playSound('fscream',false)">
+        <input type="image" src="images/womanScreaming.png" alt="woman screaming" onclick="playSound('fscream',false,false)">
         <audio preload="auto" id="fscream"><source src="sounds/womanScream.mp3" type="audio/mpeg"></audio>
 
         <!-- thunder 1 -->
-        <input type="image" src="images/thunder_1.png" alt="thunder" onclick="playSound('thunder_1',false)">
-        <audio preload="auto" id="thunder_1"><source src="sounds/thunder_0001.wav" type="audio/wav"></audio>
+        <input type="image" src="images/thunder_1.png" alt="thunder" onclick="playSound('thunder_1',false,false)">
+        <audio preload="auto" id="thunder_1"><source src="sounds/thunder_0001.mp3" type="audio/mpeg"></audio>
     </div>
 
     <hr>
 
     <div class="ambience">
-        <!-- engine start -->
-        <input type="image" src="images/engineStart.png" alt="engine start" onclick="playSound('engineStart',false)">
-        <audio preload="auto" id="engineStart"><source src="sounds/engineStart.wav" type="audio/wav"></audio>
+        <!-- aircraft start -->
+        <input type="image" src="images/engineStart.png" alt="engine start" onclick="playSound('engineStart',false,false)">
+        <audio preload="auto" id="engineStart"><source src="sounds/aircraft_start.mp3" type="audio/mpeg"></audio>
 
-         <!-- rain -->
-         <input type="image" src="images/rain.png" alt="rain" onclick="playSound('rain',false)">
-         <audio preload="auto" id="rain"><source src="sounds/rain.wav" type="audio/wav"></audio>
+         <!-- storm -->
+         <input type="image" src="images/storm.png" alt="storm" onclick="playSound('storm',false,true)">
+         <audio preload="auto" id="storm"><source src="sounds/storm.mp3" type="audio/mpeg"></audio>
 
-         <!-- crash -->
-         <input type="image" src="images/crash.png" alt="rain" onclick="playSound('crash',false)">
-         <audio preload="auto" id="crash"><source src="sounds/crash.wav" type="audio/wav"></audio>
+         <!-- people screaming -->
+         <input type="image" src="images/peopleScreaming.png" alt="people screaming" onclick="playSound('peopleScream',false,true)">
+         <audio preload="auto" id="peopleScream"><source src="sounds/peopleScreaming.mp3" type="audio/mpeg"></audio>
+
+         <!-- aircraft flying loop -->
+         <input type="image" src="images/aircraftLoop.png" alt="aircraft flying loop" onclick="playSound('aircraftFlyingLoop',false,true)">
+         <audio preload="auto" id="aircraftFlyingLoop"><source src="sounds/aircraft_flying_loop.mp3" type="audio/mpeg"></audio>
     </div>
 
     <script>
-        function playSound(sndid,rpt) {
+        function playSound(sndid,rpt,loopm) {
+            var myAudio = document.getElementById(sndid);
+            
+            if (myAudio.duration > 0 && !myAudio.paused) {
+                myAudio.pause();
+            } else {
+            myAudio.loop = loopm;
+
             if (rpt == true) {
-                document.getElementById(sndid).currentTime = 0;    
+                myAudio.currentTime = 0;    
             }
-            document.getElementById(sndid).play();
+
+            myAudio.play();
+            }
         }
     </script>
 </body>
