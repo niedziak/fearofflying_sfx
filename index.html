@@ -19,6 +19,7 @@
         }
 
         input {
+            background-color: teal;
             width: 100px;
             height: 100px;
             margin: 5px;
@@ -72,14 +73,6 @@
          <!-- aircraft flying loop -->
          <input type="image" src="images/aircraftLoop.png" alt="aircraft flying loop" onclick="playSound('aircraftFlyingLoop',false,true)">
          <audio preload="auto" id="aircraftFlyingLoop"><source src="sounds/aircraft_flying_loop.mp3" type="audio/mpeg"></audio>
-        
-        <!-- door slam -->
-        <input type="image" src="images/doorSlam.png" alt="door slam" onclick="playSound('doorSlam',false,false)">
-        <audio preload="auto" id="doorSlam"><source src="sounds/doorSlam.mp3" type="audio/mpeg"></audio>
-
-        <!-- hiss -->
-        <input type="image" src="images/hiss.png" alt="hiss" onclick="playSound('hiss',false,false)">
-        <audio preload="auto" id="hiss"><source src="sounds/hiss.mp3" type="audio/mpeg"></audio>
     </div>
 
     <script>
